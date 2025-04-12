@@ -132,9 +132,11 @@
 }
 
 /* ===== モバイル（共通） ===== */
+@media screen and (max-width: 800px) {
   .carousel-navigation {
     display: none !important;
   }
+}
 
 /* ===== モバイル（大） ===== */
 @media (max-width: 576px) {
