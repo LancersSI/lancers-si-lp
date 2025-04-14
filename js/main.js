@@ -401,7 +401,7 @@ function sendHeight() {
   window.addEventListener("load", sendHeight);
   window.addEventListener("resize", sendHeight);
   // 高さ変動に備え定期送信も可
-  setInterval(sendHeight, 1000);
+  // setInterval(sendHeight, 1000);
 }
 
 // ===== INITIALIZATION =====
