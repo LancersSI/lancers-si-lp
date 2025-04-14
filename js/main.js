@@ -390,7 +390,7 @@ function measurePerformance() {
   });
 }
 
-// ===== ADDITIONAL FUNCTIONS =====
+// ===== IFRAME FUNCTIONS =====
 function sendHeight() {
   // html要素の高さをscroll分を含めて取得
   const height = document.body.scrollHeight;
@@ -400,13 +400,12 @@ function sendHeight() {
   // DOMが読み込まれる、もしくはリサイズされた際、高さを送信
   window.addEventListener("load", sendHeight);
   window.addEventListener("resize", sendHeight);
-  // 高さ変動に備え定期送信も可
-  // setInterval(sendHeight, 1000);
+
 }
 
 // ===== INITIALIZATION =====
 document.addEventListener('DOMContentLoaded', function () {
-  console.log('TechInnovate Website - Initialized');
+  console.log('Lancers System Integration - Initialized');
 
   initMobileMenu();
   initSmoothScroll();
