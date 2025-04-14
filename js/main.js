@@ -415,6 +415,6 @@ document.addEventListener('DOMContentLoaded', function () {
   initAdvancedScrollAnimation();
   initCaseCarousel();
   addAccessibilityAttributes();
-  measurePerformance();
+  // measurePerformance();
   sendHeight();
 });
