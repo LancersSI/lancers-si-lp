@@ -441,7 +441,41 @@
 
 .contact-container {
     display: flex;
-    gap: 50px;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.service-preview-wrapper,
+.service-cta-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    display: block;
+    position: relative;
+    margin: 0 auto;
+}
+
+.service-preview-wrapper {
+    height: 240px;
+    margin-bottom: 0;
+}
+
+.service-cta-wrapper {
+    height: 149px;
+}
+
+.service-preview-image,
+.service-cta-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.contact-container {
+    padding: 0;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .contact-info {
