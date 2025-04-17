@@ -66,9 +66,30 @@
     max-width: 100%;
   }
   
-  .contact-container {
-    display: flex;
-    justify-content: center;
+  .service-preview-wrapper,
+  .service-cta-wrapper {
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+  }
+
+  .service-preview-wrapper {
+    height: auto;
+    min-height: 180px;
+    margin-bottom: 0;
+  }
+
+  .service-cta-wrapper {
+    height: auto;
+    min-height: 112px;
+  }
+
+  .service-preview-image,
+  .service-cta-image {
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    object-fit: contain;
   }
   
   .footer-content {
@@ -157,6 +178,15 @@
   .services-grid,
   .cases-grid {
     grid-template-columns: 1fr;
+  }
+
+  .service-preview-wrapper {
+    min-height: 140px;
+    margin-bottom: 0;
+  }
+
+  .service-cta-wrapper {
+    min-height: 87px;
   }
   
   .footer-links {
