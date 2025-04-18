@@ -68,6 +68,22 @@
   .container {
     max-width: 720px;
   }
+
+  .strength-card,
+  .strength-card:nth-child(2) {
+    gap: 20px;
+    flex-direction: column;
+  }
+
+  .strength-icon {
+    flex: 0 0 260px;
+    margin: 0 auto;
+    height: 180px;
+  }
+
+  .strength-content {
+    text-align: center;
+  }
   
   .hero .container {
     flex-direction: column;
@@ -225,7 +241,24 @@
   }
 
   .strength-card {
-    padding: var(--spacing-xl);
+    padding: var(--spacing-lg);
+  }
+
+  .strength-icon {
+      flex: 0 0 200px;
+      height: 140px;
+  }
+
+  /* モバイルサイズでさらに調整 */
+  @media (max-width: 576px) {
+    .strength-card {
+      gap: 15px;
+    }
+
+    .strength-icon {
+      flex: 0 0 200px;
+      height: 140px;
+    }
   }
 
   .service-preview-wrapper {
