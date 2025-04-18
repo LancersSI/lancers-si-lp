@@ -205,6 +205,26 @@
   .menu-toggle.active .bar:nth-child(3) {
     transform: rotate(45deg) translate(-5px, -6px);
   }
+
+  .footer-legal-section {
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    height: auto;
+    padding: 10px 0;
+  }
+  
+  .footer-company-logo {
+    margin-bottom: 5px;
+  }
+  
+  .footer-copyright {
+    margin-top: 5px;
+  }
+  
+  .footer-legal {
+    text-align: center;
+  }
 }
 
 /* ===== モバイル（共通） ===== */
@@ -278,7 +298,8 @@
   
   .footer-legal {
     flex-direction: column;
-    gap: var(--spacing-md);
+    gap: 5px;
+    align-items: center;
   }
 }
 

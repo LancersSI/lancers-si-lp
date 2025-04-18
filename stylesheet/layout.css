@@ -155,73 +155,41 @@
 
 /* ===== フッター ===== */
 .footer {
-  background-color: #ffffff;
-  color: var(--text-dark);
-  padding-top: var(--spacing-xxl);
-  padding-bottom: 0;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0;
   position: relative;
 }
 
 .footer-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   gap: var(--spacing-xxl);
   align-items: center;
 }
 
-.footer-company {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.footer-logo {
-  display: flex;
-  align-items: center;
-  margin-bottom: var(--spacing-md);
-}
-
-.footer-logo-image {
-  height: 40px;
-  width: auto;
-  margin-right: var(--spacing-sm);
-  object-fit: contain;
-  margin-left: 0;
-  padding-left: 0;
-}
-
-.footer-description {
-  color: var(--text-medium);
-  margin-bottom: var(--spacing-lg);
-}
-
-.footer-social {
-  display: flex;
-  gap: var(--spacing-md);
-}
-
-.social-link {
-  color: var(--text-dark);
-  background-color: rgba(0, 0, 0, 0.05);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color var(--transition-fast);
-}
-
-.social-link:hover {
-  background-color: var(--secondary-color);
-  color: white;
+.footer-legal-wrapper {
+  background-color: var(--primary-color);
+  padding: 1rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-legal-section {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: var(--spacing-md);
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+}
+
+.footer-company-logo {
+  display: flex;
+  align-items: center;
+}
+
+.footer-logo-image {
+  height: 25px;
+  width: auto;
+  object-fit: contain;
 }
 
 .footer-legal {
@@ -230,8 +198,8 @@
 }
 
 .footer-legal a {
-  color: var(--text-medium);
-  font-size: 0.875rem;
+  color: white;
+  font-size: 0.75rem;
   transition: color var(--transition-fast);
 }
 
@@ -239,20 +207,13 @@
   color: var(--secondary-color);
 }
 
+.footer-copyright {
+  display: flex;
+  align-items: center;
+}
+
 .copyright {
-  color: var(--text-medium);
-  font-size: 0.875rem;
-}
-
-/* 新しいコピーライトセクション */
-.copyright-section {
-  background-color: var(--primary-color);
-  padding: var(--spacing-md) 0;
-  margin-top: var(--spacing-lg);
-}
-
-.copyright-section .copyright {
   color: white;
-  text-align: center;
+  font-size: 0.75rem;
   margin: 0;
 }
