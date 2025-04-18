@@ -190,18 +190,52 @@ function initCaseCarousel() {
 
 // ===== MAIN FUNCTIONALITY =====
 function initMobileMenu() {
-  const menuToggle = document.querySelector('.menu-toggle');
-  const navList = document.querySelector('.nav-list');
+  const menuToggle = document.getElementById('menu-toggle');
+  const navList = document.getElementById('nav-list');
 
-  if (!menuToggle || !navList) return;
+  if (!menuToggle || !navList) {
+    console.error('メニュー要素が見つかりません');
+    return;
+  }
 
-  menuToggle.addEventListener('click', function () {
+  // アクセシビリティ属性を追加
+  menuToggle.setAttribute('aria-controls', 'nav-list');
+  menuToggle.setAttribute('aria-expanded', 'false');
+  navList.setAttribute('aria-hidden', 'true');
+  menuToggle.setAttribute('aria-label', 'メニュー');
+
+  // クリックイベントを追加
+  menuToggle.addEventListener('click', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    
     menuToggle.classList.toggle('active');
     navList.classList.toggle('active');
 
     const expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
     menuToggle.setAttribute('aria-expanded', !expanded);
     navList.setAttribute('aria-hidden', expanded);
+    
+    // スクロールを制御
+    if (!expanded) {
+      document.body.style.overflow = 'hidden'; // メニューが開いているときはスクロールを無効に
+    } else {
+      document.body.style.overflow = ''; // メニューが閉じたらスクロールを有効に
+    }
+    
+    console.log('メニュートグル状態:', menuToggle.classList.contains('active'));
+  });
+
+  // ナビゲーションリンクをクリックしたらメニューを閉じる
+  const navLinks = navList.querySelectorAll('a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      menuToggle.classList.remove('active');
+      navList.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      navList.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = ''; // スクロールを有効に戻す
+    });
   });
 
   window.addEventListener('resize', function () {
@@ -210,8 +244,12 @@ function initMobileMenu() {
       navList.classList.remove('active');
       menuToggle.setAttribute('aria-expanded', 'false');
       navList.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = ''; // スクロールを有効に戻す
     }
   });
+  
+  // デバッグ用
+  console.log('モバイルメニュー初期化完了');
 }
 
 function initSmoothScroll() {
@@ -310,14 +348,23 @@ function sendHeight() {
 }
 
 // ===== INITIALIZATION =====
-document.addEventListener('DOMContentLoaded', function () {
-
+document.addEventListener('DOMContentLoaded', function() {
+  // モバイルメニューの初期化
   initMobileMenu();
+  
+  // スムーススクロールの初期化
   initSmoothScroll();
-  initContactButtonEffect();
+  
+  // ケースカルーセルの初期化（もし存在すれば）
+  initCaseCarousel();
+  
+  // アニメーション関連の初期化
   addAnimationClasses();
   initAdvancedScrollAnimation();
-  initCaseCarousel();
+  
+  // アクセシビリティ属性の追加
   addAccessibilityAttributes();
+  
+  // 高さを送信
   sendHeight();
 });
