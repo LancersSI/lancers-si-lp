@@ -225,7 +225,32 @@
   }
 
   .strength-card {
-    padding: var(--spacing-xl);
+    padding: var(--spacing-lg);
+  }
+
+  .strength-card {
+    gap: 20px;
+    flex-direction: column;
+  }
+
+  .strength-icon {
+    flex: 0 0 100px;
+    margin: 0 auto;
+  }
+
+  .strength-content {
+    text-align: center;
+  }
+
+  /* モバイルサイズでさらに調整 */
+  @media (max-width: 576px) {
+    .strength-card {
+      gap: 15px;
+    }
+
+    .strength-icon {
+      flex: 0 0 80px;
+    }
   }
 
   .service-preview-wrapper {
