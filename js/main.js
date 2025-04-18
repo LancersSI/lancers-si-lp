@@ -3,70 +3,6 @@
  * 統合JavaScriptファイル
  */
 
-// ===== UTILITY FUNCTIONS =====
-function toggleVisibility(element, isVisible) {
-  if (!element) return;
-  element.style.display = isVisible ? '' : 'none';
-}
-
-function scrollToElement(target, offset = 0) {
-  let targetElement = typeof target === 'string' ? document.querySelector(target) : target;
-  if (!targetElement) return;
-
-  const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
-  window.scrollTo({
-    top: targetPosition,
-    behavior: 'smooth'
-  });
-}
-
-function debounce(func, wait = 100) {
-  let timeout;
-  return function (...args) {
-    const later = () => {
-      clearTimeout(timeout);
-      func(...args);
-    };
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-  };
-}
-
-function throttle(func, limit = 100) {
-  let inThrottle;
-  return function (...args) {
-    if (!inThrottle) {
-      func(...args);
-      inThrottle = true;
-      setTimeout(() => inThrottle = false, limit);
-    }
-  };
-}
-
-const CookieUtil = {
-  setCookie(name, value, days = 30) {
-    const date = new Date();
-    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-    document.cookie = `${name}=${value};expires=${date.toUTCString()};path=/;SameSite=Strict`;
-  },
-
-  getCookie(name) {
-    const cookieName = `${name}=`;
-    const cookies = document.cookie.split(';');
-    for (let i = 0; i < cookies.length; i++) {
-      let cookie = cookies[i].trim();
-      if (cookie.indexOf(cookieName) === 0) {
-        return cookie.substring(cookieName.length, cookie.length);
-      }
-    }
-    return null;
-  },
-
-  deleteCookie(name) {
-    document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;SameSite=Strict`;
-  }
-};
-
 // ===== ANIMATION FUNCTIONS =====
 function addAnimationClasses() {
   const heroContent = document.querySelector('.hero-content');
@@ -311,25 +247,6 @@ function initSmoothScroll() {
   });
 }
 
-function initScrollAnimation() {
-  const animatedElements = document.querySelectorAll('.fade-in, .slide-in, .zoom-in');
-  if (animatedElements.length === 0) return;
-
-  function checkIfInView() {
-    animatedElements.forEach(element => {
-      const elementTop = element.getBoundingClientRect().top;
-      const elementBottom = element.getBoundingClientRect().bottom;
-      const windowHeight = window.innerHeight;
-
-      if (elementTop < windowHeight - 50 && elementBottom > 0) {
-        element.classList.add('animated');
-      }
-    });
-  }
-
-  checkIfInView();
-  window.addEventListener('scroll', checkIfInView);
-}
 
 function initContactButtonEffect() {
   const contactBtn = document.querySelector('.contact-btn');
@@ -376,20 +293,6 @@ function addAccessibilityAttributes() {
   }
 }
 
-function measurePerformance() {
-  if (!window.performance || !window.performance.timing) return;
-
-  const timing = window.performance.timing;
-  const domContentLoadedTime = timing.domContentLoadedEventEnd - timing.navigationStart;
-
-  console.log(`DOM Content Loaded: ${domContentLoadedTime}ms`);
-
-  window.addEventListener('load', () => {
-    const loadTime = timing.loadEventEnd - timing.navigationStart;
-    console.log(`Page Load Complete: ${loadTime}ms`);
-  });
-}
-
 // ===== IFRAME FUNCTIONS =====
 function sendHeight() {
   // html要素の高さをscroll分を含めて取得
@@ -400,21 +303,18 @@ function sendHeight() {
   // DOMが読み込まれる、もしくはリサイズされた際、高さを送信
   window.addEventListener("load", sendHeight);
   window.addEventListener("resize", sendHeight);
-
+  setInterval(sendHeight, 1000);
 }
 
 // ===== INITIALIZATION =====
 document.addEventListener('DOMContentLoaded', function () {
-  console.log('Lancers System Integration - Initialized');
 
   initMobileMenu();
   initSmoothScroll();
-  initScrollAnimation();
   initContactButtonEffect();
   addAnimationClasses();
   initAdvancedScrollAnimation();
   initCaseCarousel();
   addAccessibilityAttributes();
-  // measurePerformance();
   sendHeight();
 });

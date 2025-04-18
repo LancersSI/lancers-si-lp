@@ -3,9 +3,6 @@
  * コンポーネントスタイルシート - カード、セクション、UIコンポーネント
  */
 
-.problems {
-  background-color: var(--background-gray);
-}
 
 .problems-grid {
   display: grid;
@@ -43,9 +40,7 @@
   font-size: 0.95rem;
 }
 
-.solution-overview {
-  background-color: white;
-}
+
 
 .section-header {
   text-align: center;
@@ -122,9 +117,7 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.services {
-  background-color: var(--background-gray);
-}
+
 
 .services-grid {
   display: grid;
@@ -192,9 +185,7 @@
   transform: translateX(3px);
 }
 
-.strengths {
-  background-color: white;
-}
+
 
 .strengths-content {
   display: flex;
@@ -219,9 +210,7 @@
   color: var(--text-medium);
 }
 
-.cases {
-  background-color: var(--background-gray);
-}
+
 
 .cases-grid {
   display: grid;
@@ -386,9 +375,7 @@
   margin-top: var(--spacing-xxl);
 }
 
-.contact {
-  background-color: white;
-}
+
 
 .contact-container {
   width: 100%;

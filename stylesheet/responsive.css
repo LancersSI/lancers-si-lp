@@ -249,21 +249,18 @@
       height: 140px;
   }
 
-  /* モバイルサイズでさらに調整 */
-  @media (max-width: 576px) {
-    .strength-card {
-      gap: 15px;
-    }
-
-    .strength-icon {
-      flex: 0 0 200px;
-      height: 140px;
-    }
-  }
-
   .service-preview-wrapper {
     min-height: 140px;
     margin-bottom: 0;
+  }
+
+  .strength-card {
+    gap: 15px;
+  }
+
+  .strength-icon {
+    flex: 0 0 200px;
+    height: 140px;
   }
 
   .service-cta-wrapper {
