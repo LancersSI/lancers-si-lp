@@ -45,10 +45,13 @@
   .section-title {
     font-size: 2rem;
   }
-  
-  .overview-content,
-  .strengths-content {
-    flex-direction: column;
+
+  .strength-card {
+    padding: var(--spacing-lg);
+  }
+
+  .strength-icon {
+    margin-bottom: var(--spacing-md);
   }
   
   .overview-image {
@@ -214,6 +217,15 @@
   .services-grid,
   .cases-grid {
     grid-template-columns: 1fr;
+  }
+
+  .strengths-grid {
+    width: 90%;
+    max-width: 600px;
+  }
+
+  .strength-card {
+    padding: var(--spacing-xl);
   }
 
   .service-preview-wrapper {
