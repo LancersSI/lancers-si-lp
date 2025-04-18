@@ -11,13 +11,31 @@
 }
 
 /* ===== デスクトップ（中） ===== */
-@media (max-width: 1024px) {
+@media (max-width: 1063px) {
   html {
     font-size: 15px;
   }
   
   .container {
     max-width: 960px;
+    padding: 0 var(--spacing-lg);
+  }
+
+  .nav-list {
+    gap: 1rem;
+  }
+
+  .nav-link {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .nav-link.contact-button {
+    padding: 0.5rem 1rem;
+  }
+
+  .logo-image {
+    height: 35px;
   }
   
   .hero-title {
@@ -111,31 +129,49 @@
     top: 70px;
     left: 0;
     width: 100%;
-    background-color: white;
+    height: calc(100vh - 70px);
+    background-color: rgba(255, 255, 255, 0.98);
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
     padding: var(--spacing-lg);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    transform: translateY(-100%);
+    transform: translateX(100%);
     opacity: 0;
     pointer-events: none;
-    transition: all var(--transition-normal);
+    transition: all 0.3s ease-in-out;
   }
   
   .nav-list.active {
-    transform: translateY(0);
+    transform: translateX(0);
     opacity: 1;
     pointer-events: all;
   }
   
   .nav-item {
-    margin: var(--spacing-sm) 0;
+    margin: var(--spacing-md) 0;
     width: 100%;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease-in-out;
   }
+  
+  .nav-list.active .nav-item {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .nav-list.active .nav-item:nth-child(1) { transition-delay: 0.1s; }
+  .nav-list.active .nav-item:nth-child(2) { transition-delay: 0.2s; }
+  .nav-list.active .nav-item:nth-child(3) { transition-delay: 0.3s; }
+  .nav-list.active .nav-item:nth-child(4) { transition-delay: 0.4s; }
+  .nav-list.active .nav-item:nth-child(5) { transition-delay: 0.5s; }
   
   .nav-link {
     display: block;
-    padding: var(--spacing-sm) 0;
+    padding: var(--spacing-md);
+    font-size: 1.2rem;
   }
   
   /* ハンバーガーメニューのアニメーション */
