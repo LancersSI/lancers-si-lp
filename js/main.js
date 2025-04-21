@@ -257,7 +257,7 @@ function sendHeight() {
   const currentHeight = document.body.scrollHeight;
   if (currentHeight !== lastHeight) {
     // iframe側に高さを送信
-    window.parent.postMessage({ iframeHeight: height }, "*");
+    window.parent.postMessage({ iframeHeight: currentHeight }, "*");
     lastHeight = currentHeight;
   }
   // DOMが読み込まれる、もしくはリサイズされた際、高さを送信
