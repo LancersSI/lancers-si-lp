@@ -42,12 +42,19 @@
 }
 
 html {
+  margin: 0;
+  padding: 0;
+  background: white;
+  box-sizing: border-box;
   font-size: 16px;
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
 
 body {
+  margin: 0;
+  padding: 0;
+  background: white;
   font-family: var(--font-main);
   color: var(--text-dark);
   line-height: 1.6;
@@ -145,4 +152,8 @@ section {
   color: white;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+section:last-of-type {
+  padding-bottom: 0 !important;
 }
