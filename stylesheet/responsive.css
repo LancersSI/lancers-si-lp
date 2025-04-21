@@ -105,7 +105,8 @@
   
   .service-preview-wrapper,
   .service-cta-wrapper {
-    width: 100%;
+    width: 90%;
+    max-width: 600px;
     position: relative;
     margin: 0 auto;
   }
@@ -125,7 +126,7 @@
   .service-cta-image {
     width: 100%;
     height: auto;
-    min-height: 100%;
+    max-width: 600px;
     object-fit: contain;
   }
   
@@ -138,79 +139,11 @@
     grid-template-columns: repeat(2, 1fr);
   }
   
-  /* モバイルメニュー */
-  .menu-toggle {
-    display: flex;
-    z-index: 1010;
-    cursor: pointer;
-  }
-  
+  /* ナビゲーションを非表示 */
   .nav-list {
-    position: fixed;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    height: calc(100vh - 70px);
-    background-color: var(--primary-color);
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: var(--spacing-lg);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    transform: translateX(100%);
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s ease-in-out;
-    z-index: 1000;
-    overflow-y: auto;
+    display: none;
   }
   
-  .nav-list.active {
-    transform: translateX(0);
-    opacity: 1;
-    pointer-events: all;
-  }
-  
-  .nav-item {
-    margin: var(--spacing-md) 0;
-    width: 100%;
-    text-align: center;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .nav-list.active .nav-item {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  .nav-list.active .nav-item:nth-child(1) { transition-delay: 0.1s; }
-  .nav-list.active .nav-item:nth-child(2) { transition-delay: 0.2s; }
-  .nav-list.active .nav-item:nth-child(3) { transition-delay: 0.3s; }
-  .nav-list.active .nav-item:nth-child(4) { transition-delay: 0.4s; }
-  .nav-list.active .nav-item:nth-child(5) { transition-delay: 0.5s; }
-  
-  .nav-link {
-    display: block;
-    padding: var(--spacing-md);
-    font-size: 1.2rem;
-    color: white;
-  }
-  
-  /* ハンバーガーメニューのアニメーション */
-  .menu-toggle.active .bar:nth-child(1) {
-    transform: rotate(-45deg) translate(-5px, 6px);
-  }
-  
-  .menu-toggle.active .bar:nth-child(2) {
-    opacity: 0;
-  }
-  
-  .menu-toggle.active .bar:nth-child(3) {
-    transform: rotate(45deg) translate(-5px, -6px);
-  }
-
   .footer-legal-section {
     flex-direction: column;
     gap: 5px;
@@ -229,6 +162,17 @@
   
   .footer-legal {
     text-align: center;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .logo-image {
+    margin: 0 auto;
+    display: block;
   }
 }
 
@@ -275,6 +219,8 @@
   }
 
   .service-preview-wrapper {
+    width: 85%;
+    max-width: 450px;
     min-height: 140px;
     margin-bottom: 0;
   }
@@ -289,7 +235,14 @@
   }
 
   .service-cta-wrapper {
+    width: 85%;
+    max-width: 450px;
     min-height: 87px;
+  }
+  
+  .service-preview-image,
+  .service-cta-image {
+    max-width: 450px;
   }
   
   .footer-links {
@@ -305,6 +258,14 @@
     flex-direction: column;
     gap: 5px;
     align-items: center;
+  }
+
+  .header-inner {
+    padding: 5px 0;
+  }
+  
+  .logo-image {
+    height: 35px;
   }
 }
 
