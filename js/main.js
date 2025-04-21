@@ -251,19 +251,15 @@ function addAccessibilityAttributes() {
 }
 
 // ===== IFRAME FUNCTIONS =====
-let lastHeight = 0;
 function sendHeight() {
   // html要素の高さをscroll分を含めて取得
-  const currentHeight = document.body.scrollHeight;
-  if (currentHeight !== lastHeight) {
-    // iframe側に高さを送信
-    window.parent.postMessage({ iframeHeight: currentHeight }, "*");
-    lastHeight = currentHeight;
-  }
-  // DOMが読み込まれる、もしくはリサイズされた際、高さを送信
+  const height = document.body.scrollHeight;
+  // iframe側に高さを送信
+  window.parent.postMessage({ iframeHeight: height }, "*");
+
+  // DOMが読み込まれる、もしくはリサイズされた際発火
   window.addEventListener("load", sendHeight);
   window.addEventListener("resize", sendHeight);
-  setInterval(sendHeight, 1000);
 }
 
 // ===== INITIALIZATION =====
