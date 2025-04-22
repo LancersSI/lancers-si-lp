@@ -1,5 +1,5 @@
 /**
- * TechInnovate - AI業務効率化・システムインテグレーションソリューション
+ * Lancers SI LP
  * 統合JavaScriptファイル
  */
 
@@ -254,7 +254,6 @@ function addAccessibilityAttributes() {
 function sendHeight() {
   // html要素の高さをscroll分を含めて取得
   const height = document.body.scrollHeight;
-  console.log("送信高さ:", height);
   // iframe側に高さを送信
   window.parent.postMessage({ iframeHeight: height }, "*");
 
